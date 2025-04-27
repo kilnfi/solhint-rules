@@ -20,10 +20,8 @@ class ValidStorageSlotChecker extends BaseChecker {
         super(reporter, ruleId, meta);
     }
 
-    ContractDefinition(node) {
-        const children = node.children;
-        console.log(node);
-        console.log(children);
+    SourceUnit(node) {
+        console.log(JSON.stringify(node, null, 4));
     }
 }
 
