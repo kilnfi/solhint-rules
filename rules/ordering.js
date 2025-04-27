@@ -180,7 +180,6 @@ function contractPartOrder(node) {
     if (
         node.isConstructor ||
         (node.type === "FunctionDefinition" &&
-            node.name === "initialize" &&
             (isInitializerModifier(node.modifiers, "initializer", null) ||
                 isInitializerModifier(node.modifiers, "onlyInitializing", null)))
     ) {
