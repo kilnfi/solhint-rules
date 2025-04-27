@@ -1,5 +1,5 @@
-const FixedOrdering = require('./rules/fixed-ordering.js');
+const Ordering = require('./rules/ordering.js');
 
 module.exports = [
-    FixedOrdering,
+    Ordering,
 ];

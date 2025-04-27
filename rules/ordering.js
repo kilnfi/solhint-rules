@@ -1,7 +1,7 @@
 const BaseChecker = require('solhint/lib/rules/base-checker')
 const { isFallbackFunction, isReceiveFunction } = require('solhint/lib/common/ast-types')
 
-const ruleId = 'fixed-ordering'
+const ruleId = 'ordering'
 const meta = {
   type: 'order',
 
