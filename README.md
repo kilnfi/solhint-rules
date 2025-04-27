@@ -1,12 +1,12 @@
 # custom solhint rules
 
-```
+```json
 {
-	"extends": "solhint:recommended",
+    "extends": "solhint:recommended",
     "plugins": ["kiln-rules"],
-	"rules": {
+    "rules": {
         "kiln-rules/ordering": "error"
-	}
+    }
 }
 ```
 
