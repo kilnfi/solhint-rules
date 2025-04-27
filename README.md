@@ -2,11 +2,11 @@
 
 ```json
 {
-    "extends": "solhint:recommended",
-    "plugins": ["kiln-rules"],
-    "rules": {
-        "kiln-rules/ordering": "error"
-    }
+  "extends": "solhint:recommended",
+  "plugins": ["kiln-rules"],
+  "rules": {
+    "kiln-rules/ordering": "error"
+  }
 }
 ```
 
@@ -17,7 +17,7 @@ This rule is similar to the default ordering rule from `solhint`, but instead of
 - The rule adds methods with the `initializer` or `onlyInitializing` modifiers to the same section as constructors.
 - The rule adds methods that match the `/^_get[A-Za-z0-9]*Storage$/` regex to the same section as constant variables declarations (ex: `_getContractStorage`). This allows putting the slot constant near its getter.
 
-## kiln-rule/valid-storage-slot
+## kiln-rules/valid-storage-slot (fixable)
 
 This rule ensures that constants that define computed storage slot values have the proper values they're expected to have. Any constant variables that ends with `_STORAGE_LOCATION` will be checked.
 
@@ -28,6 +28,14 @@ bytes32 internal constant CONTRACT_STORAGE_LOCATION = 0x71ef34a0eda6d4148718f060
 
 The rule will check that the value of `CONTRACT_STORAGE_LOCATION` is equal to `keccak256(abi.encode(uint256(keccak256("my.custom.slot.id")) - 1)) & ~bytes32(uint256(0xff))`. It will also check for the mandatory `@custom:slot` comment one line above the declaration.
 
-## kiln-rule/prefix-internal-functions-with-underscore & kiln-rule/prefix-private-functions-with-underscore
+`--fix` can be used to automatically apply the right value.
+
+## kiln-rules/prefix-internal-functions-with-underscore & kiln-rules/prefix-private-functions-with-underscore
 
 This rule checks that internal & private function names are prefixed with an underscore (`_`).
+
+## kiln-rules/header
+
+This rule ensures that the content before the `pragma solidity` directive is equal to a configurable amount.
+
+`--fix` can be used to automatically set the header to the right value.
