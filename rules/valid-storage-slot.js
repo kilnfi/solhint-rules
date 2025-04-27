@@ -16,12 +16,12 @@ const meta = {
 };
 
 class ValidStorageSlotChecker extends BaseChecker {
-    constructor(reporter) {
+    constructor(reporter, config, inputSrc) {
+        console.log(inputSrc);
         super(reporter, ruleId, meta);
     }
 
     SourceUnit(node) {
-        console.log(JSON.stringify(node, null, 4));
     }
 }
 
