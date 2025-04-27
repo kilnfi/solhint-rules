@@ -20,7 +20,7 @@ class ValidStorageSlotChecker extends BaseChecker {
         super(reporter, ruleId, meta);
     }
 
-    VariableDeclaration(node) {
+    ContractDefinition(node) {
         const children = node.children;
         console.log(node);
         console.log(children);
