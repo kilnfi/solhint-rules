@@ -9,6 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "ethers": "^6.13.7",
     "solhint": "^5.0.5"
   }
 }
