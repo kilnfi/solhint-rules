@@ -12,6 +12,7 @@ const meta = {
 
   recommended: false,
   defaultSetup: "warn",
+  fixable: true,
 
   schema: null,
 };
@@ -82,7 +83,13 @@ class ValidStorageSlotChecker extends BaseChecker {
         this.reporter.error(
           node,
           this.ruleId,
-          `Constant storage location for id ${slotId} must be ${expectedSlot} (line ${node.loc.start.line})`
+          `Constant storage location for id ${slotId} must be ${expectedSlot} (line ${node.loc.start.line})`,
+          (fixer) => {
+            return fixer.replaceText(
+              node.expression,
+              expectedSlot.toLowerCase()
+            );
+          }
         );
       }
     }

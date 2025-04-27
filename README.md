@@ -27,3 +27,7 @@ bytes32 internal constant CONTRACT_STORAGE_LOCATION = 0x71ef34a0eda6d4148718f060
 ```
 
 The rule will check that the value of `CONTRACT_STORAGE_LOCATION` is equal to `keccak256(abi.encode(uint256(keccak256("my.custom.slot.id")) - 1)) & ~bytes32(uint256(0xff))`. It will also check for the mandatory `@custom:slot` comment one line above the declaration.
+
+## kiln-rule/prefix-internal-functions-with-underscore & kiln-rule/prefix-private-functions-with-underscore
+
+This rule checks that internal & private function names are prefixed with an underscore (`_`).
