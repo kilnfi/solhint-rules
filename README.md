@@ -5,7 +5,12 @@
   "extends": "solhint:recommended",
   "plugins": ["kiln-rules"],
   "rules": {
-    "kiln-rules/ordering": "error"
+    "kiln-rules/ordering": "error",
+    "kiln-rules/ordering": "error",
+    "kiln-rules/valid-storage-slot": "error",
+    "kiln-rules/prefix-internal-functions-with-underscore": "error",
+    "kiln-rules/prefix-private-functions-with-underscore": "error",
+    "kiln-rules/header": ["error", ["// SPDX-License-Identifier: BUSL-1.1"]]
   }
 }
 ```
@@ -36,6 +41,6 @@ This rule checks that internal & private function names are prefixed with an und
 
 ## kiln-rules/header
 
-This rule ensures that the content before the `pragma solidity` directive is equal to a configurable amount.
+This rule ensures that the content before the `pragma solidity` directive is equal to a configurable value.
 
 `--fix` can be used to automatically set the header to the right value.
