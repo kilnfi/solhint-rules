@@ -50,6 +50,7 @@ This rule ensures that the content before the `pragma solidity` directive is equ
 This rule adds variables naming restrictions:
 
 - The variables declared inside a function are prefixed with an underscore `_`.
+- The declaration of the unstructured storage pointer returned by the `_get...Storage()` getter must be named `$`
+- The other storage pointers declared inside a function are prefixed with a dollar sign `$`.
 - The storage variables (non-constant & non-immutable) are prefixed with a dollar sign `$`.
 - The struct fields cannot be prefixed with a dollar sign `$` or an underscore `_`.
-- The declaration of the unstructured storage pointer must be named `$`
