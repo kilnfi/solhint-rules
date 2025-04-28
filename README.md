@@ -12,7 +12,7 @@
     "kiln-rules/prefix-private-functions-with-underscore": "error",
     "kiln-rules/header": ["error", ["// SPDX-License-Identifier: BUSL-1.1"]]
   }
-}
+
 ```
 
 ## `kiln-rules/ordering`
@@ -44,3 +44,12 @@ This rule checks that internal & private function names are prefixed with an und
 This rule ensures that the content before the `pragma solidity` directive is equal to a configurable value.
 
 `--fix` can be used to automatically set the header to the right value.
+
+## kiln-rules/variables-naming
+
+This rule adds variables naming restrictions:
+
+- The variables declared inside a function are prefixed with an underscore `_`.
+- The storage variables (non-constant & non-immutable) are prefixed with a dollar sign `$`.
+- The struct fields cannot be prefixed with a dollar sign `$` or an underscore `_`.
+- The declaration of the unstructured storage pointer must be named `$`
