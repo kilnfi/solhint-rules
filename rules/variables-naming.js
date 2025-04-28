@@ -24,7 +24,7 @@ class VariablesNamingChecker extends BaseChecker {
         for (const member of node.members) {
             if (member.name.startsWith("_") || member.name.startsWith("$")) {
                 this.reporter.error(
-                    member,
+                    member.identifier,
                     this.ruleId,
                     `Struct member ${member.name
                     } should not start with an underscore or a dollar sign (${member.name.slice(
@@ -40,7 +40,7 @@ class VariablesNamingChecker extends BaseChecker {
             if (!variable.isDeclaredConst && !variable.isImmutable) {
                 if (variable.name.startsWith("$_")) {
                     this.reporter.error(
-                        variable,
+                        variable.identifier,
                         this.ruleId,
                         `State variable ${variable.name
                         } should start with a dollar sign without underscore ($${variable.name.slice(
@@ -51,7 +51,7 @@ class VariablesNamingChecker extends BaseChecker {
                 }
                 if (variable.name.startsWith("_")) {
                     this.reporter.error(
-                        variable,
+                        variable.identifier,
                         this.ruleId,
                         `State variable ${variable.name
                         } should start with a dollar sign without underscore ($${variable.name.slice(
@@ -62,7 +62,7 @@ class VariablesNamingChecker extends BaseChecker {
                 }
                 if (!variable.name.startsWith("$")) {
                     this.reporter.error(
-                        variable,
+                        variable.identifier,
                         this.ruleId,
                         `State variable ${variable.name} should start with a dollar sign ($${variable.name})`
                     );
@@ -114,7 +114,7 @@ class VariablesNamingChecker extends BaseChecker {
                             variable.name !== "$"
                         ) {
                             this.reporter.error(
-                                variable,
+                                variable.identifier,
                                 this.ruleId,
                                 `Unstructured storage pointer ${variable.name} should be named $`
                             );
@@ -127,7 +127,7 @@ class VariablesNamingChecker extends BaseChecker {
                         if (variable.storageLocation == "storage") {
                             if (!variable.name.startsWith("$")) {
                                 this.reporter.error(
-                                    variable,
+                                    variable.identifier,
                                     this.ruleId,
                                     `Storage pointer variable ${variable.name} should start with a dollar sign ($${variable.name})`
                                 );
@@ -135,7 +135,7 @@ class VariablesNamingChecker extends BaseChecker {
                         } else {
                             if (!variable.name.startsWith("_")) {
                                 this.reporter.error(
-                                    variable,
+                                    variable.identifier,
                                     this.ruleId,
                                     `Variable ${variable.name} should start with an underscore (_${variable.name})`
                                 );
