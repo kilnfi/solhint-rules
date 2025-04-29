@@ -104,7 +104,7 @@ class VariablesNamingChecker extends BaseChecker {
                     statement.initialValue &&
                     statement.initialValue.type === "FunctionCall" &&
                     statement.initialValue.expression.type == "Identifier" &&
-                    /^_get[A-Za-z0-9]+Storage$/.test(
+                    /^_get[A-Za-z0-9]*Storage$/.test(
                         statement.initialValue.expression.name
                     )
                 ) {

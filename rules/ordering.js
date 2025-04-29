@@ -199,7 +199,7 @@ function contractPartOrder(node) {
 
     if (
       (visibility === "internal" || visibility === "private") &&
-      /^_get[A-Za-z0-9]+Storage$/.test(node.name)
+      /^_get[A-Za-z0-9]*Storage$/.test(node.name)
     ) {
       return [22, "storage pointer getter"];
     }
