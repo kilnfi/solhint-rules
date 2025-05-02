@@ -75,6 +75,46 @@ class VariablesNamingChecker extends BaseChecker {
     }
   }
 
+  ModifierDefinition(node) {
+    this.FunctionDefinition(node);
+  }
+
+  FunctionDefinition(node) {
+    this.processBody(node.body);
+    for (const parameter of node.parameters) {
+      if (
+        parameter.storageLocation !== "storage" &&
+        (parameter.name.startsWith("$") || parameter.name.startsWith("_"))
+      ) {
+        this.reporter.error(
+          parameter,
+          this.ruleId,
+          `Function parameter ${
+            parameter.name
+          } should not start with a dollar sign or an underscore (${parameter.name.slice(
+            1
+          )})`
+        );
+      }
+    }
+    for (const parameter of node.returnParameters) {
+      if (
+        parameter.storageLocation !== "storage" &&
+        (parameter.name.startsWith("$") || parameter.name.startsWith("_"))
+      ) {
+        this.reporter.error(
+          parameter,
+          this.ruleId,
+          `Function return parameter ${
+            parameter.name
+          } should not start with a dollar sign or an underscore (${parameter.name.slice(
+            1
+          )})`
+        );
+      }
+    }
+  }
+
   processBody(body) {
     for (const statement of body.statements) {
       if (statement.type === "ForStatement") {
@@ -152,42 +192,6 @@ class VariablesNamingChecker extends BaseChecker {
             }
           }
         }
-      }
-    }
-  }
-
-  FunctionDefinition(node) {
-    this.processBody(node.body);
-    for (const parameter of node.parameters) {
-      if (
-        parameter.storageLocation !== "storage" &&
-        (parameter.name.startsWith("$") || parameter.name.startsWith("_"))
-      ) {
-        this.reporter.error(
-          parameter,
-          this.ruleId,
-          `Function parameter ${
-            parameter.name
-          } should not start with a dollar sign or an underscore (${parameter.name.slice(
-            1
-          )})`
-        );
-      }
-    }
-    for (const parameter of node.returnParameters) {
-      if (
-        parameter.storageLocation !== "storage" &&
-        (parameter.name.startsWith("$") || parameter.name.startsWith("_"))
-      ) {
-        this.reporter.error(
-          parameter,
-          this.ruleId,
-          `Function return parameter ${
-            parameter.name
-          } should not start with a dollar sign or an underscore (${parameter.name.slice(
-            1
-          )})`
-        );
       }
     }
   }
