@@ -117,6 +117,9 @@ class VariablesNamingChecker extends BaseChecker {
 
   processBody(body) {
     for (const statement of body.statements) {
+      if (statement.type === "Block") {
+        this.processBody(statement);
+      }
       if (statement.type === "ForStatement") {
         this.processBody({ statements: [statement.initExpression] });
         this.processBody({ statements: [statement.conditionExpression] });
