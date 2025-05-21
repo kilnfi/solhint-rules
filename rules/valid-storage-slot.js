@@ -24,7 +24,7 @@ class ValidStorageSlotChecker extends BaseChecker {
   }
 
   VariableDeclaration(node) {
-    if (node.isDeclaredConst && node.name.endsWith("_STORAGE_LOCATION")) {
+    if (node.isDeclaredConst && node.name.endsWith("STORAGE_LOCATION")) {
       if (node.typeName.name !== "bytes32") {
         this.reporter.error(
           node,
