@@ -1,4 +1,4 @@
-const BaseChecker = require("../base-checker");
+const BaseChecker = require("solhint/lib/rules/base-checker");
 const { severityDescription } = require("../../doc/utils");
 
 const ruleId = "compiler-version";
