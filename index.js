@@ -4,6 +4,7 @@ const PrefixInternalFunctionsWithUnderscore = require("./rules/prefix_internal_f
 const PrefixPrivateFunctionsWithUnderscore = require("./rules/prefix_private_functions_with_underscore.js");
 const Header = require("./rules/header.js");
 const VariablesNaming = require("./rules/variables-naming.js");
+const CompilerVersion = require("./rules/compiler-version.js");
 
 module.exports = [
     Ordering,
@@ -12,4 +13,5 @@ module.exports = [
     PrefixPrivateFunctionsWithUnderscore,
     Header,
     VariablesNaming,
+    CompilerVersion
 ];
