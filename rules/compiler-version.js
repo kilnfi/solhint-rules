@@ -1,5 +1,4 @@
 const BaseChecker = require("solhint/lib/rules/base-checker");
-const { severityDescription } = require("../../doc/utils");
 
 const ruleId = "compiler-version";
 const DEFAULT_SEVERITY = "error";
@@ -12,7 +11,7 @@ const meta = {
     category: "Security Rules",
     options: [
       {
-        description: severityDescription,
+        description: "off, warn or error",
         default: DEFAULT_SEVERITY,
       },
       {
