@@ -34,7 +34,7 @@ class CompilerVersionChecker extends BaseChecker {
     super(reporter, ruleId, meta);
 
     this.requirement =
-      (config && config.getStringFromArray(ruleId, DEFAULT_SEMVER)) ||
+      (config && config.getStringFromArray(`kilnfi-rules/${ruleId}`, DEFAULT_SEMVER)) ||
       DEFAULT_SEMVER;
   }
 
