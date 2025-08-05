@@ -1,3 +1,9 @@
+# install
+
+```sh
+npm install solhint-plugin-kiln-rules@https://github.com/kilnfi/solhint-rules
+```
+
 # custom solhint rules
 
 ```json

@@ -1,5 +1,5 @@
 {
-  "name": "solhint-rules",
+  "name": "@kilnfi/solhint-rules",
   "version": "1.0.0",
   "description": "Kiln custom solhint rules",
   "main": "index.js",
