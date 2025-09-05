@@ -16,7 +16,8 @@ npm install solhint-plugin-kiln-rules@https://github.com/kilnfi/solhint-rules
     "kiln-rules/valid-storage-slot": "error",
     "kiln-rules/prefix-internal-functions-with-underscore": "error",
     "kiln-rules/prefix-private-functions-with-underscore": "error",
-    "kiln-rules/header": ["error", ["// SPDX-License-Identifier: BUSL-1.1"]]
+    "kiln-rules/header": ["error", ["// SPDX-License-Identifier: BUSL-1.1"]],
+    "kiln-rules/no-vm-random-address": "error"
   }
 
 ```
@@ -60,3 +61,8 @@ This rule adds variables naming restrictions:
 - The other storage pointers declared inside a function are prefixed with a dollar sign `$`.
 - The storage variables (non-constant & non-immutable) are prefixed with a dollar sign `$`.
 - The struct fields cannot be prefixed with a dollar sign `$` or an underscore `_`.
+
+## kiln-rules/no-vm-random-address
+
+Prevents the usage of vm.randomAddress(), prefer using fuzzing + vm.assume() instead to leverage fuzzing capabilities of foundry.
+

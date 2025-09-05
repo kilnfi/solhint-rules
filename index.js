@@ -5,6 +5,7 @@ const PrefixPrivateFunctionsWithUnderscore = require("./rules/prefix_private_fun
 const Header = require("./rules/header.js");
 const VariablesNaming = require("./rules/variables-naming.js");
 const CompilerVersion = require("./rules/compiler-version.js");
+const NoVmRandomAddress = require("./rules/no-vm-random-address.js");
 
 module.exports = [
     Ordering,
@@ -13,5 +14,6 @@ module.exports = [
     PrefixPrivateFunctionsWithUnderscore,
     Header,
     VariablesNaming,
-    CompilerVersion
+    CompilerVersion,
+    NoVmRandomAddress
 ];
