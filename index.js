@@ -6,6 +6,7 @@ const Header = require("./rules/header.js");
 const VariablesNaming = require("./rules/variables-naming.js");
 const CompilerVersion = require("./rules/compiler-version.js");
 const NoVmRandomAddress = require("./rules/no-vm-random-address.js");
+const InternalInitializers = require("./rules/internal-initializers.js");
 
 module.exports = [
     Ordering,
@@ -15,5 +16,6 @@ module.exports = [
     Header,
     VariablesNaming,
     CompilerVersion,
-    NoVmRandomAddress
+    NoVmRandomAddress,
+    InternalInitializers
 ];

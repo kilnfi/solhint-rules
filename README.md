@@ -17,7 +17,8 @@ npm install solhint-plugin-kiln-rules@https://github.com/kilnfi/solhint-rules
     "kiln-rules/prefix-internal-functions-with-underscore": "error",
     "kiln-rules/prefix-private-functions-with-underscore": "error",
     "kiln-rules/header": ["error", ["// SPDX-License-Identifier: BUSL-1.1"]],
-    "kiln-rules/no-vm-random-address": "error"
+    "kiln-rules/no-vm-random-address": "error",
+    "kiln-rules/internal-initializers": "error",
   }
 
 ```
@@ -66,3 +67,6 @@ This rule adds variables naming restrictions:
 
 Prevents the usage of vm.randomAddress(), prefer using fuzzing + vm.assume() instead to leverage fuzzing capabilities of foundry.
 
+## kiln-rules/internal-initializers
+
+Prevents functions with onlyInitializing modifier from being public, they should be internal.
