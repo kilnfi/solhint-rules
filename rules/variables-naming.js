@@ -39,6 +39,19 @@ class VariablesNamingChecker extends BaseChecker {
   StateVariableDeclaration(node) {
     for (const variable of node.variables) {
       if (!variable.isDeclaredConst && !variable.isImmutable) {
+        // Public storage variables should NOT have $ prefix
+        if (variable.visibility === "public" || variable.visibility === "external") {
+          if (variable.name.startsWith("$") || variable.name.startsWith("_")) {
+            this.reporter.error(
+              variable.identifier,
+              this.ruleId,
+              `Public state variable ${variable.name} should not have a prefix (use ${variable.name.replace(/^[$_]+/, "")})`
+            );
+          }
+          continue;
+        }
+
+        // Non-public storage variables should have $ prefix
         if (variable.name.startsWith("$_")) {
           this.reporter.error(
             variable.identifier,
